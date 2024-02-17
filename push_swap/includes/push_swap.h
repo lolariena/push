@@ -6,7 +6,7 @@
 /*   By: aibonade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:31:53 by aibonade          #+#    #+#             */
-/*   Updated: 2024/02/17 12:03:38 by aibonade         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:09:42 by aibonade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void    push_swap(t_list a);
 //Parsing
 //void	ft_lstdel(void *content);
 void	ft_error();//free avant de l'appeler ! (pour le moment en tout cas)
+t_list	*ft_create_a(char **av, int ac);
 
 //Commandes
 void	ft_sa(t_list *a);

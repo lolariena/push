@@ -6,16 +6,18 @@
 /*   By: aibonade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:19:50 by aibonade          #+#    #+#             */
-/*   Updated: 2024/02/17 12:04:22 by aibonade         ###   ########.fr       */
+/*   Updated: 2024/02/17 20:05:41 by aibonade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "ft_printf/libft/libft.h"
+#include "../includes/push_swap.h"
+
+#include "stdio.h"
 
 int	main(int ac, char **av)
 {
 	int	i;
+	t_list	*a;
 
 	if (ac < 2)
 		return (0);
@@ -26,6 +28,7 @@ int	main(int ac, char **av)
 		if (!av)
 			ft_error();
 		a = ft_create_a(av, ac);//si ac = 2 => Tant que av, add back + Si pb penser a free av !!!!
+printf("Pouet\n");
 		i = 0;
 		while (av[i])//voir a faire une ft_free plus propre ?
 			free(av[i++]);

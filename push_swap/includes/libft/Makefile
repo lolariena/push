@@ -14,21 +14,23 @@ NAME = libft.a
 CFLAGS = -Wall -Werror -Wextra
 
 .c.o:
-			cc ${CFLAGS} -c $< -o ${<:.c=.o} -I.
+			@cc ${CFLAGS} -c $< -o ${<:.c=.o} -I.
 
-${NAME}:	${OBJS}
-			ar rcs ${NAME} ${OBJS}
+#${NAME}:	${OBJS}
+#			ar rcs ${NAME} ${OBJS}
+
+${NAME}:	bonus
 
 all:		${NAME}
 
 bonus:		${OBJS} ${OBJS_BONUS}
-			ar rcs ${NAME} ${OBJS} ${OBJS_BONUS}
+			@ar rcs ${NAME} ${OBJS} ${OBJS_BONUS}
 
 clean:
-			rm -f ${OBJS} ${OBJS_BONUS}
+			@rm -f ${OBJS} ${OBJS_BONUS}
 
 fclean:		clean
-			rm -f ${NAME}
+			@rm -f ${NAME}
 
 re: fclean all
 

@@ -6,14 +6,16 @@
 /*   By: aibonade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:32:17 by aibonade          #+#    #+#             */
-/*   Updated: 2024/01/31 00:36:15 by aibonade         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:19:16 by aibonade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include	 "../includes/push_swap.h"
+
 void	ft_push(t_list *a)
 {
-	t_list b;//*?
-
+	//t_list b;//*?
+	a->content+=1;
 
 
 }
