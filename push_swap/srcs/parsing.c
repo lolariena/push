@@ -6,7 +6,7 @@
 /*   By: aibonade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 23:22:28 by aibonade          #+#    #+#             */
-/*   Updated: 2024/02/08 18:10:30 by aibonade         ###   ########.fr       */
+/*   Updated: 2024/02/17 12:11:19 by aibonade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,17 @@ t_list	ft_create_a(char **av, int ac)
 				return (NULL);
 			}
 			new = ft_lstnew(n);
+			if (!new)
+			{
+				ft_lstclear(&a, &free)
+				return (NULL);
+			}
 			ft_lstadd_back(&a, new);
 			i++;
 		}
 		return (a);
 	}
-	while (ac)
+	while (i < ac)
 	{
 			n = ft_atoi_with_error(av[i]);//retourne 0 en cas d'erreur
 			if (!n && ft_check_error_atoi(av[i]))
@@ -91,7 +96,13 @@ t_list	ft_create_a(char **av, int ac)
 				return (NULL);
 			}
 			new = ft_lstnew(n);
+			if (!new)
+			{
+				ft_lstclear(&a, &free)
+				return (NULL);
+			}
 			ft_lstadd_front(&a, new);
 			i++;
 	}
+	return (a);
 }

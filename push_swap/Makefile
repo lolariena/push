@@ -1,24 +1,25 @@
-NAME = libftprintf.a
+NAME = pushswap
 SRCS_DIR = srcs
-SRCS = ${addprefix ${SRCS_DIR}/, ft_printf.c ft_printf_utils.c ft_printf_dip.c}
+SRCS = ${addprefix ${SRCS_DIR}/, commands_p.c commands_r.c commands_rr.c commands_s.c \
+								 main.c parsing.c pushswap.c utils.c}
 OBJS = ${SRCS:.c=.o}
-LIBFT_DIR = libft
-LIBFT = libft.a
+LIBFT_DIR = ./includes/libft
+LIBFT = -L${LIBFT_DIR} -lft
 CFLAGS = -Wall -Werror -Wextra
 RM = rm -rf
 
 
-.c.o:
-			cc ${CFLAGS} -c $< -o ${<:.c=.o} -I.
+#.c.o:
+#			cc ${CFLAGS} -c $< -o ${<:.c=.o} -I.
 
 all:		${NAME}
 
 
 ${NAME}:	${OBJS}
 			make -C ${LIBFT_DIR}
-			mv ${LIBFT_DIR}/${LIBFT} ./${NAME}
-			ar rcs ${NAME} ${OBJS}
-
+			mv ${LIBFT_DIR}/${LIBFT} .
+			cc ${CFLAGS} -o ${NAME} ${OBJS} ${LIBFT}
+#a finir !!!!
 clean:
 			${RM} ${OBJS}
 			make clean -C ${LIBFT_DIR}

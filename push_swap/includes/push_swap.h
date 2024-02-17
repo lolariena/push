@@ -6,7 +6,7 @@
 /*   By: aibonade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:31:53 by aibonade          #+#    #+#             */
-/*   Updated: 2024/02/08 17:56:35 by aibonade         ###   ########.fr       */
+/*   Updated: 2024/02/17 12:03:38 by aibonade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h>
+# include <stdlib.h>
 # include "libft/libft.h"
 
 void    push_swap(t_list a);
 
 //Parsing
 //void	ft_lstdel(void *content);
+void	ft_error();//free avant de l'appeler ! (pour le moment en tout cas)
 
 //Commandes
 void	ft_sa(t_list *a);
