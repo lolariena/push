@@ -6,7 +6,7 @@
 /*   By: aibonade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 23:22:28 by aibonade          #+#    #+#             */
-/*   Updated: 2024/02/17 18:24:59 by aibonade         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:12:06 by aibonade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	ft_atoi_with_error(const char *nptr)//ajouter check int min & max //cest ici
 	int	sign;
 	int	i;
 
+printf("bbasuiufhiahihfuh str = %s\n", nptr);
 	n = 0;
 	sign = 1;
 	i = 0;
@@ -49,8 +50,8 @@ int	ft_check_error_atoi(const char *nptr)
 	int nb_nondigit;
 
 	i = 0;
-	while ((nptr[i] > 8 && nptr[i] < 14) || nptr[i] == ' ')
-		i++;
+	//while ((nptr[i] > 8 && nptr[i] < 14) || nptr[i] == ' ')
+	//	i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 		i++;
 printf("Tsoin\n");
@@ -120,7 +121,7 @@ t_list	*ft_create_a(char **av, int ac)//soit je fais deux sous-fonctions, soit u
 	//void fct(void *) = &free
 	
 	a = NULL;
-	i = -1;
+	i = 0;//21/02 etait a -1
 printf("ac = %d\n", ac);
 	if (ac == 2)
 	{
