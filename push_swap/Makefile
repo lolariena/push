@@ -1,7 +1,7 @@
 NAME = pushswap
 SRCS_DIR = srcs
 SRCS = ${addprefix ${SRCS_DIR}/, commands_p.c commands_r.c commands_rr.c commands_s.c \
-								 main.c parsing.c push_swap.c utils.c}
+								 main.c parsing.c push_swap.c utils.c parsing_utils.c}
 OBJS = ${SRCS:.c=.o}
 LIBFT_DIR = ./includes/libft
 LIBFT = -L${LIBFT_DIR} -lft

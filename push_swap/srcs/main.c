@@ -6,7 +6,7 @@
 /*   By: aibonade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:19:50 by aibonade          #+#    #+#             */
-/*   Updated: 2024/02/17 20:05:41 by aibonade         ###   ########.fr       */
+/*   Updated: 2024/02/26 14:17:34 by aibonade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,45 @@ int	main(int ac, char **av)
 {
 	int	i;
 	t_list	*a;
+//t_list *suppr;
 
 	if (ac < 2)
 		return (0);
 //deplacer tout ca dans une autre fonction (create a du coup ?)
 	if (ac == 2)
 	{
-		av = ft_split(av[1], 1);
+		av = ft_split(av[1], ' ');
 		if (!av)
 			ft_error();
-		a = ft_create_a(av, ac);//si ac = 2 => Tant que av, add back + Si pb penser a free av !!!!
-printf("Pouet\n");
+		a = ft_create_a(av, ac);
 		i = 0;
 		while (av[i])//voir a faire une ft_free plus propre ?
 			free(av[i++]);
 		free(av);
 	}
 	else
-		a = ft_create_a(av, ac);//si ac > 2 => Tant que ac, add front
+	{
+		a = ft_create_a(av, ac);
+		
+	}
 	if (!a)
 		ft_error();
-	//creer pile a => liste chainee ? // =>verifier qu'elle n'a pas deux fois le meme chiffre au moment d'implementer la pile (a chaque creation d'un nouveau maillon) + parsing 
-	//verifier si elle est deja triee ou =1 => Si oui, exit ! 
-	//push_swap(&a)
-	//free a ? => faudra free a chaque erreur donc... print error et free a puis exit ?
+	if (ft_check_sort(a))
+	{
+		ft_lstclear(&a, &free);
+		return (0);
+	}
+printf("Liste non triee, on continue !\n");//a supprimer in fine
+/* afficher la liste
+i = 0;
+suppr = a;
+while (suppr)
+{
+	printf("a%d = %d\n", i, *(int*)(suppr->content));
+	i++;
+	suppr = suppr->next;
+}*/
+	push_swap(&a);
+	ft_lstclear(&a, &free);
 	return (0);
 }

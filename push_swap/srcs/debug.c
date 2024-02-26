@@ -15,7 +15,7 @@ static int ft_test_minmax(int n, char c, int sign)//A AJOUTER
     return (0);
 }
 
-int	ft_atoi_with_error(const char *nptr)//ajouter check int min & max //cest ici que ca merdouille
+int	ft_atoi_with_error(const char *nptr)
 {
 	int	n;
 	int	sign;
@@ -42,6 +42,31 @@ int	ft_atoi_with_error(const char *nptr)//ajouter check int min & max //cest ici
 	return (n * sign);
 }
 
+int	ft_check_error_atoi(const char *nptr)
+{
+	int	i;
+	int nb_nondigit;
+
+	i = 0;
+	if (nptr[i] == '-' || nptr[i] == '+')
+		i++;
+	nb_nondigit = i;
+	while (ft_isdigit(nptr[i]))
+		i++;
+	if ((nptr[i] && !ft_isdigit(nptr[i])) || ((i - nb_nondigit) >= 10))//CHANGEMENTS ICI & DEDANS
+	{
+		if (!nptr[i] && ((i - nb_nondigit) == 10))
+		{
+			if (nptr[0] == '-' && nptr[i - 1] <= '8')
+				return (0);
+			if ((nptr[0] == '+' || ft_isdigit(nptr[0])) && nptr[i - 1] < '8')
+				return (0);
+		}
+		return (1);
+	}
+	return (0);
+}
+
 int main (int ac, char **av)
 {
     int a;
@@ -50,7 +75,7 @@ int main (int ac, char **av)
     i = 1;
     while (i < ac)
     {
-        a = ft_atoi_with_error(av[i]);
+        a = ft_check_error_atoi(av[i]);
         printf("%d\n",a);
         i++;
     }
