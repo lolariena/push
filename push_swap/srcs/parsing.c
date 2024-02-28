@@ -88,8 +88,11 @@ t_list	*ft_create_a(char **av, int ac)
 		if (ft_freelst(n, &a))
 			return (NULL);
 		*n = ft_atoi_with_error(av[i]);
-		if (ft_check_n(*n, &a, av[i]))
+		if (ft_check_n(n, &a, av[i]))//free n
+		{
+			free(n);
 			return (NULL);
+		}
 		new = ft_lstnew(n);
 		if (ft_freelst(new, &a))
 			return (NULL);

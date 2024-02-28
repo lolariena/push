@@ -53,15 +53,16 @@ static int	ft_check_unique(t_list *a, int n)
 	return (0);
 }
 
-int	ft_check_n(int n, t_list **a, char *str)
+int	ft_check_n(int *n, t_list **a, char *str)
 {
-	if (!n && ft_check_error_atoi(str))
+	if (!*n && ft_check_error_atoi(str))
 	{
 		ft_lstclear(a, &free);
 		return (1);
 	}
-	if (a && ft_check_unique(*a, n))
+	if (a && ft_check_unique(*a, *n))//free n
 	{
+		free(n);
 		ft_lstclear(a, &free);
 		return (1);
 	}

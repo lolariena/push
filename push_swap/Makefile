@@ -5,7 +5,7 @@ SRCS = ${addprefix ${SRCS_DIR}/, commands_p.c commands_r.c commands_rr.c command
 OBJS = ${SRCS:.c=.o}
 LIBFT_DIR = ./includes/libft
 LIBFT = -L${LIBFT_DIR} -lft
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3
 RM = rm -rf
 
 

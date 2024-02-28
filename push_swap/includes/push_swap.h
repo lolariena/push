@@ -23,7 +23,7 @@ void    push_swap(t_list a);
 void	ft_error();//free avant de l'appeler ! (pour le moment en tout cas)
 t_list	*ft_create_a(char **av, int ac);
 int	ft_check_error_atoi(const char *nptr);
-int	ft_check_n(int n, t_list **a, char *str);
+int	ft_check_n(int *n, t_list **a, char *str);
 
 //tri
 int		ft_check_sort(t_list *a);
