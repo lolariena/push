@@ -21,6 +21,8 @@ int	ft_check_error_atoi(const char *nptr)
 	if (nptr[i] == '-' || nptr[i] == '+')
 		i++;
 	nb_nondigit = i;
+	if (!nptr[i])
+		return (1);
 	while (ft_isdigit(nptr[i]))
 		i++;
 	if ((nptr[i] && !ft_isdigit(nptr[i])) || ((i - nb_nondigit) >= 10))
