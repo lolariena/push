@@ -14,13 +14,13 @@
 
 static int	ft_test_minmax(int n, char c, int sign)
 {
-	if (n > 214748364)
-		return (1);
 	if (n == 214748364)
 	{
 		if ((c > '7' && sign > 0) || (c > '8' && sign < 0))
 			return (1);
 	}
+	if (n > 214748364)
+		return (1);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: aibonade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:19:50 by aibonade          #+#    #+#             */
-/*   Updated: 2024/02/26 14:17:34 by aibonade         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:33:36 by aibonade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ while (suppr)
 	i++;
 	suppr = suppr->next;
 }*/
-	push_swap(&a);
+//	push_swap(&a);
 	ft_lstclear(&a, &free);
 	return (0);
 }

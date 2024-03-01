@@ -27,13 +27,15 @@ int	ft_check_error_atoi(const char *nptr)
 		i++;
 	if ((nptr[i] && !ft_isdigit(nptr[i])) || ((i - nb_nondigit) >= 10))
 	{
-		if (!nptr[i] && ((i - nb_nondigit) == 10))
+		if (!nptr[i] && ((i - nb_nondigit) == 10) && nptr[i - 2] == '4')
 		{
 			if (nptr[0] == '-' && nptr[i - 1] <= '8')
 				return (0);
 			if ((nptr[0] == '+' || ft_isdigit(nptr[0])) && nptr[i - 1] < '8')
 				return (0);
 		}
+		if (!nptr[i] && ((i - nb_nondigit) == 10) && nptr[i - 2] < '4')
+			return (0);
 		return (1);
 	}
 	return (0);
