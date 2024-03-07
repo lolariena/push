@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-void    push_swap(t_list a);
+void    ft_push_swap(t_list *a);
 
 //Parsing
 void	ft_error();//free avant de l'appeler ! (pour le moment en tout cas)
@@ -26,7 +26,7 @@ int	ft_check_error_atoi(const char *nptr);
 int	ft_check_n(int *n, t_list **a, char *str);
 
 //tri
-int		ft_check_sort(t_list *a);
+int		ft_check_sort(t_list *a, int ordr);
 
 //Commandes
 void	ft_sa(t_list *a);

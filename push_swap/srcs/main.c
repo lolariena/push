@@ -35,13 +35,10 @@ int	main(int ac, char **av)
 		free(av);
 	}
 	else
-	{
 		a = ft_create_a(av, ac);
-		
-	}
 	if (!a)
 		ft_error();
-	if (ft_check_sort(a))
+	if (ft_check_sort(a, 0))
 	{
 		ft_lstclear(&a, &free);
 		return (0);
@@ -56,7 +53,7 @@ while (suppr)
 	i++;
 	suppr = suppr->next;
 }*/
-//	push_swap(&a);
+	ft_push_swap(a);//&a
 	ft_lstclear(&a, &free);
 	return (0);
 }

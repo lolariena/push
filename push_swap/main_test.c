@@ -192,21 +192,22 @@ int main()
 	G = 6;
 	H = 7;
 	a = ft_lstnew(&A);
-	b = ft_lstnew(&E);
+	//b = ft_lstnew(&E);
 	tmp = ft_lstnew(&B);
-	tmp2 = ft_lstnew(&F);
+	//tmp2 = ft_lstnew(&F);
 	ft_lstadd_back(&a, tmp);
-	ft_lstadd_front(&b, tmp2);
+	//ft_lstadd_front(&b, tmp2);
 	tmp = ft_lstnew(&C);
-	tmp2 = ft_lstnew(&G);
+	//tmp2 = ft_lstnew(&G);
 	ft_lstadd_back(&a, tmp);
-	ft_lstadd_front(&b, tmp2);
+	//ft_lstadd_front(&b, tmp2);
 	tmp = ft_lstnew(&D);
-	tmp2 = ft_lstnew(&H);
-	printf("flag\n");
+	//tmp2 = ft_lstnew(&H);
+	//printf("flag\n");
 	ft_lstadd_back(&a, tmp);
-	ft_lstadd_front(&b, tmp2);
+	//ft_lstadd_front(&b, tmp2);
 	tmp = a;
+	b = NULL;
 	tmp2 = b;
 	while(tmp || tmp2)
 	{
@@ -227,7 +228,7 @@ int main()
 		printf("\n");
 	}
 	printf(".......\n");
-	ft_rra(&a);
+	ft_pb(&b, &a);
 	tmp = a;
 	tmp2 = b;
 	while(tmp || tmp2)

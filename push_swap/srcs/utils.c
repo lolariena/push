@@ -12,21 +12,24 @@
 
 #include "../includes/push_swap.h"
 
-int		ft_check_sort(t_list *a)
+//0 pour ordre croissant, nawak autre pour decroissant
+int	ft_check_sort(t_list *a, int ordr)
 {
 	t_list	*tmp;
 
 	tmp = a;
 	while (tmp && tmp->next)
 	{
-		if (*(int *)tmp->content > *(int *)tmp->next->content)
+		if (ordr == 0 && *(int *)tmp->content > *(int *)tmp->next->content)
+			return (0);
+		else if (ordr != 0 && *(int *)tmp->content < *(int *)tmp->next->content)
 			return (0);
 		tmp = tmp->next;
 	}
 	return (1);
 }
 
-void	ft_error()
+void	ft_error(void)
 {
 	write(1, "Error\n", 6);
 	exit(EXIT_FAILURE);

@@ -1,4 +1,4 @@
-//A SUPPRIMER !!!!!
+//FICHIER A SUPPRIMER !!!!!
 
 #include <stdio.h>
 #include "../includes/push_swap.h"
