@@ -51,11 +51,23 @@ static int *ft_init_tab(t_list *a)
 }
 
 #include "stdio.h"
+static int	ft_median(t_list *a, int *tab)
+{
+	int size;
+
+	size = ft_lstsize(a);
+	if (size % 2)
+		return (tab[size / 2]);
+printf("size = %d\nsize / 2 = %d\ntab[size / 2] = %d\ntab[size / 2 - 1] = %d\n(tab[size / 2] + tab[size / 2 - 1]) / 2 = %d\n\n", size, size / 2, tab[size / 2], tab[size / 2 - 1], (tab[size / 2] + tab[size / 2 - 1]) / 2);
+	return ((tab[size / 2] + tab[size / 2 - 1]) / 2);
+}
+
 void	ft_push_swap(t_list *a)
 {
 	t_list	*b;
 	int		*tab;
 	int		i;
+	int		median;//inclure la mediane dans le deplacement vers b au cas ou si jamais par ex -1 0 1 2 (mediane = 0.5 donc 0) 
 	int		size;//a suppr
 
 
@@ -63,7 +75,8 @@ void	ft_push_swap(t_list *a)
 	tab = ft_init_tab(a);
 	if (!tab)
 		return ;
-
+	median = ft_median(a, tab);
+printf("mediane = %d\n", median);
 size = ft_lstsize(a);
 i = 0;
 while (i < size)
