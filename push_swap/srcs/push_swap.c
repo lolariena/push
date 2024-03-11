@@ -62,6 +62,24 @@ printf("size = %d\nsize / 2 = %d\ntab[size / 2] = %d\ntab[size / 2 - 1] = %d\n(t
 	return ((tab[size / 2] + tab[size / 2 - 1]) / 2);
 }
 
+static void	ft_cut(t_list *a, t_list *b, int median)
+{
+	int		stop;
+	int		ignore_stop;
+	int 	minb;
+	int 	maxb;
+	t_list	tmp;
+
+	maxb = -2147483648;
+	minb = 2147483647;
+	tmp = a;
+	while (*(int *)tmp->content <= median)
+		tmp = a;
+	stop = *(int *)tmp->content;
+	ignore_stop = 1;
+	while () //=> comment integrer le ignore_stop ?
+}
+
 void	ft_push_swap(t_list *a)
 {
 	t_list	*b;
