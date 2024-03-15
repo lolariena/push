@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-void    ft_push_swap(t_list *a);
+void    ft_push_swap(t_list **a);
 
 //Parsing
 void	ft_error();//free avant de l'appeler ! (pour le moment en tout cas)

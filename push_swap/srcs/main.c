@@ -53,7 +53,8 @@ while (suppr)
 	i++;
 	suppr = suppr->next;
 }*/
-	ft_push_swap(a);//&a
+//gerer si a ne contient que 2 elements faire juste un ra (si on arrive la cest aue cest pas trie)
+	ft_push_swap(&a);//&a
 	ft_lstclear(&a, &free);
 	return (0);
 }
