@@ -6,7 +6,7 @@
 /*   By: aibonade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:19:05 by aibonade          #+#    #+#             */
-/*   Updated: 2024/02/08 15:49:29 by aibonade         ###   ########.fr       */
+/*   Updated: 2024/03/16 17:12:14 by aibonade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,3 @@ void	ft_rrr(t_list **a, t_list **b)
 	ft_reverse_rotate(b);
 	write(1, "rrr\n", 4);
 }
-

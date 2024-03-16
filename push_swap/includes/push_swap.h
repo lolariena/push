@@ -6,7 +6,7 @@
 /*   By: aibonade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:31:53 by aibonade          #+#    #+#             */
-/*   Updated: 2024/02/17 16:09:42 by aibonade         ###   ########.fr       */
+/*   Updated: 2024/03/16 17:31:59 by aibonade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-void    ft_push_swap(t_list **a);
+void	ft_push_swap(t_list **a);
 
 //Parsing
-void	ft_error();//free avant de l'appeler ! (pour le moment en tout cas)
+void	ft_error(void);
 t_list	*ft_create_a(char **av, int ac);
-int	ft_check_error_atoi(const char *nptr);
-int	ft_check_n(int *n, t_list **a, char *str);
+int		ft_check_error_atoi(const char *nptr);
+int		ft_check_n(int *n, t_list **a, char *str);
 
 //tri
 int		ft_check_sort(t_list *a, int ordr);

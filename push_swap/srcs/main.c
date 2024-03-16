@@ -6,7 +6,7 @@
 /*   By: aibonade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:19:50 by aibonade          #+#    #+#             */
-/*   Updated: 2024/02/28 17:33:36 by aibonade         ###   ########.fr       */
+/*   Updated: 2024/03/16 17:14:49 by aibonade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main(int ac, char **av)
 {
-	int	i;
+	int		i;
 	t_list	*a;
 //t_list *suppr;
 
