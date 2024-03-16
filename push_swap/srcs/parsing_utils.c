@@ -6,7 +6,7 @@
 /*   By: aibonade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 13:46:11 by aibonade          #+#    #+#             */
-/*   Updated: 2024/02/26 13:46:19 by aibonade         ###   ########.fr       */
+/*   Updated: 2024/03/16 17:15:55 by aibonade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_check_n(int *n, t_list **a, char *str)
 		ft_lstclear(a, &free);
 		return (1);
 	}
-	if (a && ft_check_unique(*a, *n))//free n
+	if (a && ft_check_unique(*a, *n))
 	{
 		free(n);
 		ft_lstclear(a, &free);
