@@ -12,7 +12,7 @@
 
 #include	"../includes/push_swap.h"
 
-static void	ft_fill_tab(t_list *a, int *tab, int size_tab)
+static void	ft_fill_tab(t_list *a, int *tab, int size_tab)//a mettre dans ps_utils et garder static
 {
 	t_list	*tmp;
 	int		i;
@@ -37,13 +37,13 @@ static void	ft_fill_tab(t_list *a, int *tab, int size_tab)
 	}
 }
 
-static int	*ft_init_tab(t_list *a)
+static int	*ft_init_tab(t_list *a)//a mettre dans ps_utils et virer static
 {
 	int		*tab;
 	int		size;
 
 	size = ft_lstsize(a);
-	tab = malloc(size * sizeof(int));//tester a 0
+	tab = malloc(size * sizeof(int));
 	if (!tab)
 		return (NULL);
 	ft_fill_tab(a, tab, size);
@@ -139,7 +139,7 @@ static void	ft_cut(t_list **a, t_list **b, int median)//trop longue !
 					push2++;
 				}
 				else
-					ft_presort(a, b, minmaxb);
+					ft_presort(a, b, minmaxb);//pb si on enleve le pretri => dans ce cas, penser a recuperer le start
 			}
 			else
 				ft_ra(a);
@@ -162,7 +162,7 @@ void	ft_push_swap(t_list **a)
 	if (!tab)
 		return ;
 	median = ft_median(*a, tab);
-/*rintf("mediane = %d\n", median);
+/*printf("mediane = %d\n", median);
 size = ft_lstsize(*a);
 i = 0;
 while (i < size)
@@ -192,6 +192,12 @@ while(tmp || tmp2)
 		}
 		printf("\n");
 	}
+
+	// if (!ft_check_sort(b, 1))
+	// 	ft_sort(b, a);
+	// if (!ft_check_sort(a, 0))
+	// 	ft_sort(a, b);
+	//ft_fill_sorted_a(a, b); //=>fonction pour remettre tout b dans a quand tout est trie
 	free (tab);
 }
 

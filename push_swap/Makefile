@@ -1,4 +1,4 @@
-NAME = pushswap
+NAME = push_swap
 SRCS_DIR = srcs
 SRCS = ${addprefix ${SRCS_DIR}/, commands_p.c commands_r.c commands_rr.c commands_s.c \
 								 main.c parsing.c push_swap.c utils.c parsing_utils.c}
