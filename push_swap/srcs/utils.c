@@ -29,6 +29,15 @@ int	ft_check_sort(t_list *a, int ordr)
 	return (1);
 }
 
+void	ft_free_data(t_data *data)
+{
+	if (data->good_order)
+		free(data->good_order);
+	if (data->current_order)
+		free(data->current_order);
+	free(data);
+}
+
 void	ft_error(void)
 {
 	write(1, "Error\n", 6);

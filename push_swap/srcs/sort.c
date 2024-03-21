@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::	  ::::::::   */
-/*   sort.c											 :+:	  :+:	:+:   */
-/*													+:+ +:+		 +:+	 */
-/*   By: aibonade <marvin@42.fr>					+#+  +:+	   +#+		*/
-/*												+#+#+#+#+#+   +#+		   */
-/*   Created: 2024/03/17 13:27:48 by aibonade		  #+#	#+#			 */
-/*   Updated: 2024/03/17 13:27:55 by aibonade		 ###   ########.fr	   */
-/*																			*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aibonade <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/21 18:04:13 by aibonade          #+#    #+#             */
+/*   Updated: 2024/03/21 18:04:18 by aibonade         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
@@ -70,7 +70,7 @@ static int	ft_calculation_nb_move(int *ordered, int to_sort, int current_place, 
 	return (nb_move);
 }
 
-static void	ft_update_current(int *ordered, int *current, int size, t_list *l, int start)//pb : liste pas forcement dans le bon ordre... enfin elle se decale quoi, comment gerer la boucle sachant quon a un null au milieu ? sachant que la je sais que mon max et mon min sont bien places ils peuvent me servir de reperes en fait...
+static void	ft_update_current(t_data data, t_list *l, int start)//pb : liste pas forcement dans le bon ordre... enfin elle se decale quoi, comment gerer la boucle sachant quon a un null au milieu ? sachant que la je sais que mon max et mon min sont bien places ils peuvent me servir de reperes en fait...
 {
 	int		i;
 	t_list	*tmp;
@@ -79,12 +79,12 @@ static void	ft_update_current(int *ordered, int *current, int size, t_list *l, i
 	while (*(int *)tmp->content != start)
 		tmp = tmp->next;
 	i = 0;
-	while (i < size)
+	while (i < data->current_size)
 	{
-		if (*(int *)tmp->content == ordered[i])
-			current[i] = 0;
+		if (*(int *)tmp->content == data->good_order[i])
+			data->current_order[i] = 0;
 		else
-			current[i] = ft_calculation_nb_move(ordered, *(int *)tmp->content, i, size);//calculer le nb de mv a faire pour le mettre a la bonne place...
+			data->current_order[i] = ft_calculation_nb_move(data->good_order, *(int *)tmp->content, i, data->current_size);//calculer le nb de mv a faire pour le mettre a la bonne place...
 		if (tmp->next)
 			tmp = tmp->next;
 		else
@@ -93,20 +93,20 @@ static void	ft_update_current(int *ordered, int *current, int size, t_list *l, i
 	}
 }
 
-int	ft_which_one_moves(int *current, int size)
+int	ft_which_one_moves(t_data *data)
 {
 	int	i;
-	int	min_move;
+	//int	min_move;
 	int	save_index;
 
 	i = 0
 	save_index = 0;
-	min_move = 2147483647;//est-ce assez grand ?
+	data->min_move = 2147483647;//est-ce assez grand ?
 	while (i < size)
 	{
-		if (current[i] != 0 && current[i] < min_move)
+		if (data->current_order[i] != 0 && data->current_order[i] < data->min_move)
 		{
-			min_move = current[i];
+			data->min_move = data->current_order[i];
 			save_index = i;
 		}
 		i++;
@@ -114,16 +114,17 @@ int	ft_which_one_moves(int *current, int size)
 	return (save_index);
 }
 
-void	ft_sort_one(t_list **to_sort, int index, t_list **l2, int size, int nb_moves)//pour reduire utiliser **t_list oui mais j'ai aussi besoin de lordre... ou en tout cas de l'index correct => va falloir que je me cree une struct specifique...
+void	ft_sort_one(t_list **to_sort, int current_index, t_list **l2, t_data data)//pour reduire utiliser ***t_list oui mais j'ai aussi besoin de lordre... ou en tout cas de l'index correct => va falloir que je me cree une struct specifique...
 {
 	int	nb_rotations;
 	int	nb_swaps;
 	int i;
+	int	good_index;
 
 	i = 0;
-	if (current_place > size / 2)
+	if (current_index > data->current_size / 2)
 	{
-		nb_rotations = size - index;//la aussi du coup
+		nb_rotations = data->current_size - current_index;//la aussi du coup (ligne)
 		while (i < nb_rotations)//sinon faire une fonction binaire soit rb soit rrb sur toute la boucle
 		{
 			ft_rrb(to_sort);//rrr ???
@@ -132,58 +133,66 @@ void	ft_sort_one(t_list **to_sort, int index, t_list **l2, int size, int nb_move
 	}
 	else
 	{
-		nb_rotations = index;//on peut gagner une ligne la si besoin
+		nb_rotations = current_index;//on peut gagner une ligne la si besoin
 		while (i < nb_rotations)
 		{
-			ft_rb(to_sort);//rr
+			ft_rb(to_sort);//rr ?
 			i++;
 		}
 	}
 	i = 0;
-	if (index <= ((2 * size) / 3))
+	good_index = //LAAAAAAAAAAAAAAA
+	if (index <= ((2 * data->current_size) / 3))
 	{
-		nb_swaps = nb_moves - nb_rotations;
+		nb_swaps = (data->min_move - nb_rotations)/2;//a modifier si je passe plutot sur a
 		while (i < nb_swaps)
 		{
-			ft_sb//PAR ICIIIIIIIIIIIIIIIIIIIIII !
+			if ()//ICIIIIIIIIIIIII
+			ft_sb(to_sort);//ss?
 			i++;
 		}
 	}
 	else
-		nb_swaps = (nb_moves - nb_rotations) / 2;
+		nb_swaps = (data->min_move - nb_rotations) / 2;
 }
 
-void	ft_sort2(t_list **to_sort, t_list **l2, int *current_order, int *good_order)
+void	ft_sort2(t_list **to_sort, t_list **l2, t_data *data)
 {
 	int	index;
-	int size;
+	//int size;
 
-	size = ft_lstsize(to_sort);
-	while (!ft_check_sort(to_sort, 1))//comment je sais que c'est a ou b ? pour l'instant CB (:nerd:)
+	//size = ft_lstsize(to_sort);
+	while (!ft_check_sort(*to_sort, 1))//comment je sais que c'est a ou b ? pour l'instant CB (:nerd:)
 	{
-		ft_update_current(good_order, current_order, size, good_order[0]);
-		ft_sort_one(to_sort, ft_which_one_moves(current_order, size), l2, size);
+		ft_update_current(data, *to_sort, data->good_order[0]);
+		ft_sort_one(to_sort, ft_which_one_moves(data), l2, data);
 	}
 }
 
 void	ft_sort(t_list **to_sort, t_list **l2)//Si on utilise aussi pour a, penser a preinstaller quand meme correctement le min (ou le max)
 {
-	int *good_order;
-	int *current_order;
-	int size;
+	//int *good_order;
+	//int *current_order;
+	//int size;
+	t_data	*data;
 
-	size = ft_lstsize(to_sort);
-	good_order = ft_init_tab(*to_sort);
-	if (!good_order)
-		return ;//si malloc pas bon comment on arrete ? valeur de retour ? putain de migraine de meeeeeeerdeeeeeeuh
-	current_order = malloc(size * sizeof(int));
-	if (!current_order)
+	data = malloc(sizeof(t_data));
+	if (!data)
+		return ;//voir plus bas
+	data->current_size = ft_lstsize(*to_sort);
+	data->good_order = ft_init_tab(*to_sort);
+	if (!data->good_order)
 	{
-		free(good_order);
+		ft_free_data(data);
+		return ;//si malloc pas bon comment on arrete ? valeur de retour ? putain de migraine de meeeeeeerdeeeeeeuh
+	}
+	data->current_order = malloc(size * sizeof(int));
+	if (!data->current_order)
+	{
+		ft_free_data(data);
 		return ;//idem
 	}
 	//ft_update_current(good_order, current_order, size, good_order[0])//check ordre dans good order => doit etre decroissant
-	ft_sort2(to_sort, l2, current_order, good_order);
-	free(current_order);
-	free(order);
+	ft_sort2(to_sort, l2, data);
+	ft_free_data(data);
 }

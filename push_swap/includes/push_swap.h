@@ -17,6 +17,18 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
+typedef struct s_data//si tu modifies les trucs a malloc dedans pense a modifier free data !!!!
+{
+	//int	size_a;
+	int	current_size;
+	int	*good_order;
+	int	*current_order;
+	int	min_move;
+	//int	start;
+	//t_list	**a;///!\ ne pas freeeeeee
+	//t_list	**b;///!\ ne pas freeeeeee
+}	t_data;
+
 void	ft_push_swap(t_list **a);
 
 //Parsing
@@ -25,10 +37,10 @@ t_list	*ft_create_a(char **av, int ac);
 int		ft_check_error_atoi(const char *nptr);
 int		ft_check_n(int *n, t_list **a, char *str);
 
-//tri
+//Sort
 int		ft_check_sort(t_list *a, int ordr);
 
-//Commandes
+//Commands
 void	ft_sa(t_list *a);
 void	ft_sb(t_list *b);
 void	ft_ss(t_list *a, t_list *b);

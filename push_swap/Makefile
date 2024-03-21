@@ -13,12 +13,11 @@ RM = rm -rf
 .c.o:
 			@cc ${CFLAGS} -c $< -o ${<:.c=.o} -I.
 
-all:		${NAME}
-
+all:		${NAME} 
 
 ${NAME}:	${OBJS}
 			@make -C ${LIBFT_DIR}
-			#mv ${LIBFT_DIR}/${LIBFT} .
+			mv ${LIBFT_DIR}/${LIBFT} .
 			@cc ${CFLAGS} -o ${NAME} ${OBJS} ${LIBFT}
 			@echo "\e[38;5;82mCompilation OK\033[0m"	
 
